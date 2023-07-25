@@ -1,4 +1,4 @@
-export default function sortInfo(obj, firstFields) {
+export function sortInfo(obj, firstFields) {
   const result = [];
   const info = { ...obj };
   /* eslint-disable-next-line */
@@ -15,3 +15,18 @@ export default function sortInfo(obj, firstFields) {
 }
 
 // sortInfo({name: 'мечник', health: 10, level: 2, attack: 80, defence: 40}, ["name", "level"])
+
+export function getSpecials(character) {
+  const result = [];
+  const { special } = character;
+  /* eslint-disable-next-line */
+  for (let ability of special) {
+    const {
+      id, name, description = 'Описание недоступно', icon,
+    } = ability;
+    result.push({
+      id, name, description, icon,
+    });
+  }
+  return result;
+}
